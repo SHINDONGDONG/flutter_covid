@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+//스타일을 지정해두기
+
 class Style {
   static const buttonTextStyle = TextStyle(
     fontSize: 16.0, fontWeight: FontWeight.w600,);
