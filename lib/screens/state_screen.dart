@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_covid19/config/palette.dart';
+import 'package:flutter_covid19/config/style.dart';
+import 'package:flutter_covid19/widgets/custom_appbar.dart';
 
 class StateScreen extends StatefulWidget {
   const StateScreen({Key key}) : super(key: key);
@@ -10,6 +13,62 @@ class StateScreen extends StatefulWidget {
 class _StateScreenState extends State<StateScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      backgroundColor: Palette.kPrimaryColor,
+      appBar: CustomAppBar(),
+      body: CustomScrollView(
+        physics: ClampingScrollPhysics(),
+        slivers: [
+          _buildheader(),
+          _buildRegionTabBar(),
+        ],
+      ),
+    );
+  }
+
+  SliverPadding _buildheader() {
+    return SliverPadding(
+      padding: EdgeInsets.all(20),
+      sliver: SliverToBoxAdapter(
+        child: Text(
+          'Staticese',
+          style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 28,
+          ),
+        ),
+      ),
+    );
+  }
+
+  SliverToBoxAdapter _buildRegionTabBar(){
+    return SliverToBoxAdapter(
+      child: DefaultTabController(
+        length: 2,
+        child: Container(
+          margin: EdgeInsets.symmetric(horizontal: 20),
+          height: 50,
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(25),
+          ),
+          padding: EdgeInsets.all(3),
+          child: TabBar(
+            indicator: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            tabs: [
+              Text('My country'),
+              Text('Global'),
+            ],
+            labelColor: Colors.black,
+            labelStyle: Style.tabTextStyle,
+            unselectedLabelColor: Colors.white,
+          ),
+        ),
+      ),
+    );
   }
 }
