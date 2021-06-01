@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_covid19/screens/home_screen.dart';
+import 'package:flutter_covid19/screens/state_screen.dart';
 
 class BottomNavScreen extends StatefulWidget {
   const BottomNavScreen({Key key}) : super(key: key);
@@ -9,9 +11,8 @@ class BottomNavScreen extends StatefulWidget {
 
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
-    Scaffold(),
-    Scaffold(),
-    Scaffold(),
+    HomeScreen(),
+    StateScreen(),
     Scaffold(),
     Scaffold(),
   ];
